@@ -20,7 +20,9 @@
 	},
 	"require": {
 		"php": ">=5.3.2",
-		"nette/nette": "@dev",
+		"nette/application": "@dev",
+		"nette/di": "@dev",
+		"tracy/tracy": "@dev",
 		"kdyby/events": "@dev"
 	},
 	"autoload": {
