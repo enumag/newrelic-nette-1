@@ -6,7 +6,7 @@ use Kdyby;
 use Nette;
 use Nette\Application\Application;
 use Nette\Application\Request;
-use Nette\Diagnostics\Debugger;
+use Tracy\Debugger;
 
 
 class NewRelicProfilingListener extends Nette\Object implements Kdyby\Events\Subscriber
@@ -29,11 +29,9 @@ class NewRelicProfilingListener extends Nette\Object implements Kdyby\Events\Sub
 		}
 
 		$oldLogger = Debugger::getLogger();
-		$logger = new Logger;
+		$logger = new Logger($oldLogger->directory, $oldLogger->email);
 		$logger->emailSnooze = $oldLogger->emailSnooze;
 		$logger->mailer = $oldLogger->mailer;
-		$logger->directory = $oldLogger->directory;
-		$logger->email = $oldLogger->email;
 		Debugger::setLogger($logger);
 	}
 

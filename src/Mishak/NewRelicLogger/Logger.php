@@ -2,10 +2,7 @@
 
 namespace Mishak\NewRelicLogger;
 
-use Nette;
-
-
-class Logger extends Nette\Diagnostics\Logger
+class Logger extends \Tracy\Logger
 {
 
 	public function log($message, $priority = self::INFO)
